@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Digital Image Forgery Detection Using Pre-Trained Xception Model as Feature Extractor</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <style>
+    p {
+      color: white;
+    }
+  </style>
+  <!-- Favicons -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="../static/assets/css/styles.css" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: Remember
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/remember-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<body>
+  <!-- ======= Top Bar ======= -->
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html">Forgery Detection System</a></h1>
+      </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{{ url_for('first')}}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('login')}}">Login</a></li>
+          <li><a class="nav-link scrollto" href="{{ url_for('register')}}">Register</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-up">
+      <h1>Digital Image Forgery Detection Using</h1>
+      <h2>Deep Learning</h2>
+      <p>In recent days, an important problem in image forensic is to determine whether a specific image is authenticated or non-authenticated. It is a crucial process where the images are considered as major evidence to alter decision in various scenarios like court laws. <br>For performing those forensic investigation, different technical devices and algorithms has been introduced in the present world. The tampered images are used as proof in the court judgment to take false decision by providing false information as a portion of evidences.<br></p>
+    </div>
+  </section><!-- End Hero -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-up">
+      <h1>Fake Logo Detection Using</h1>
+      <h2>Resnet50</h2>
+      <p>Detecting fake logos is imperative in safeguarding brands and consumers against fraudulent activities. As counterfeit logos are often used to deceive consumers and manipulate market perception, reliable detection methods are crucial for maintaining trust and integrity in the marketplace. Leveraging advanced technologies such as machine learning algorithms and image analysis techniques, researchers and practitioners strive to develop robust solutions capable of accurately identifying forged logos amidst the vast digital landscape. By enhancing the capabilities of fake logo detection, businesses can mitigate financial losses and protect their brand reputation from illicit exploitation.</p>
+    </div>
+  </section><!-- End Hero -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-up">
+      <h1>Video Forgery Detection Using</h1>
+      <h2>Resnet50</h2>
+      <p>Video Forgery is thus <strong>a technique of generating altered or fake videos by combining, altering or creating new video</strong>. Thus the authenticity of such digital videos is questionable and needs to be verified.</p>
+    </div>
+  </section><!-- End Hero -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+      </div>
+    </div>
+    <div class="container footer-bottom clearfix">
+    </div>
+  </footer><!-- End Footer -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Vendor JS Files -->
+  <script src="../static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../static/assets/vendor/aos/aos.js"></script>
+  <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../static/assets/vendor/php-email-form/validate.js"></script>
+  <!-- Template Main JS File -->
+  <script src="../static/assets/js/main.js"></script>
+
+  <script>
+    // Automatic scrolling to each section at certain time intervals
+    const sections = document.querySelectorAll('section');
+    let index = 0;
+
+    function scrollToNextSection() {
+      sections[index].scrollIntoView({ behavior: 'smooth' });
+      index = (index + 1) % sections.length;
+    }
+
+    setInterval(scrollToNextSection, 3000); // Change 5000 to the desired time interval in milliseconds
+  </script>
+</body>
+</html>

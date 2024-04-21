@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Activity History</title>
+    <!-- Include your existing CSS stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="../static/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="../static/assets/css/style.css" rel="stylesheet">
+
+    <style>
+    /* Additional custom styles for activity history page */
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+    }
+    td {
+        background-color: #fff;
+    }
+    tr {
+        border-bottom: 2px solid #ddd; /* Add a border to separate each row */
+    }
+    img {
+        max-width: 100px;
+        max-height: 100px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    img:hover {
+        transform: scale(1.1);
+    }
+    .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        text-align: center;
+    }
+    .lightbox img {
+        max-width: 80%;
+        max-height: 80%;
+        margin-top: 10%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+</style>
+
+    
+    
+</head>
+<body>
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+    
+          <div class="logo">
+            <h1 class="text-light"><a href="index.html">Forgery Detection</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+          </div>
+    
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto" href="{{ url_for('index')}}">Home</a></li>
+              <li><a class="nav-link scrollto active" href="{{ url_for('activity_history')}}">Previous activities</a></li>
+              <li><a class="nav-link scrollto " href="{{ url_for('image')}}">Image</a></li>
+              <li><a class="nav-link scrollto " href="{{ url_for('logo')}}">Logo</a></li>
+              <li><a class="nav-link scrollto " href="{{ url_for('video')}}">video</a></li>
+              <li><a class="nav-link scrollto" href="{{ url_for('logout')}}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <section id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="section-title" data-aos="zoom-in">
+        <h1>Activity History</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Action Type</th>
+                <th>File</th>
+                <th>Time</th>
+                <th>Prediction Output</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in user_activities %}
+            <tr>
+                <td>{{ activity.action_type }}</td>
+                    <td><img class="lightbox-trigger" src="{{ activity.file_path }}" alt="Image"></td>
+                    <td>{{ activity.timestamp }}</td>
+                    <td>{{ activity.prediction_output }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-image" src="" alt="Enlarged Image">
+    </div>
+
+    <!-- Include your existing JavaScript files -->
+    <script src="../static/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/assets/vendor/aos/aos.js"></script>
+    <script src="../static/assets/vendor/php-email-form/validate.js"></script>
+    <script src="../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../static/assets/vendor/purecounter/purecounter.js"></script>
+    <script src="../static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="../static/assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const lightbox = document.querySelector(".lightbox");
+            const lightboxImage = document.querySelector(".lightbox-image");
+            const lightboxTrigger = document.querySelectorAll(".lightbox-trigger");
+            const closeBtn = document.querySelector(".close-btn");
+
+            lightboxTrigger.forEach(function(trigger) {
+                trigger.addEventListener("click", function() {
+                    lightboxImage.src = this.src;
+                    lightbox.style.display = "block";
+                });
+            });
+
+            closeBtn.addEventListener("click", function() {
+                lightbox.style.display = "none";
+            });
+        });
+    </script>
+</body>
+</html>
