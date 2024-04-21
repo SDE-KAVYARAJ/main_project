@@ -1,0 +1,10 @@
+Digital Image Forgery Detection Using Deep Learning.
+
+Algorithm / Model Used: CNN Model Architecture.
+
+Training Accuracy:98% and 
+Validation Accuracy of 92%.
+
+
+
+
